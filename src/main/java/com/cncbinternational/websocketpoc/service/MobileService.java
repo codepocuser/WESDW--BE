@@ -16,7 +16,7 @@ public class MobileService {
         qrcode.setId(acknowledgeDto.getTxId());
         qrcode.setUsername(acknowledgeDto.getUser());
         return webClient.post()
-                .uri("http://localhost:8080/internal/qrcode/callback")
+                .uri("http://localhost:5000/internal/qrcode/callback")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .body(Mono.just(qrcode), QRCode.class)
                 .retrieve()
